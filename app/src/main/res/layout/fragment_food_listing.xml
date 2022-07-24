@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+        name="foodListingToolbar"
+        type="String" />
+        <variable
+            name="foodListingFragment"
+            type="com.example.foodorderingapp.UI.Fragments.FoodListingFragment" />
+        <variable
+            name="foodsAdapter"
+            type="com.example.foodorderingapp.UI.Adapter.FoodsAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UI.Fragments.FoodListingFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarListing"
+            app:title="@{foodListingToolbar}"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:adapter="@{foodsAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="1"
+            android:orientation="vertical"
+            android:layout_width="409dp"
+            android:layout_height="601dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarListing" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

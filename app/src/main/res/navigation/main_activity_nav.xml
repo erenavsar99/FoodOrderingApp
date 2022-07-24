@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav.xml"
+    app:startDestination="@id/homePageFragment">
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.foodorderingapp.UI.Fragments.HomePageFragment"
+        android:label="HomePageFragment"
+        tools:layout="@layout/fragment_home_page">
+        <action
+            android:id="@+id/toFoodListingFragment"
+            app:destination="@id/foodListingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodListingFragment"
+        android:name="com.example.foodorderingapp.UI.Fragments.FoodListingFragment"
+        android:label="FoodListingFragment"
+        tools:layout="@layout/fragment_food_listing" >
+        <action
+            android:id="@+id/toFoodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+        <action
+            android:id="@+id/toOnCartFragment"
+            app:destination="@id/onCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.example.foodorderingapp.UI.Fragments.FoodDetailFragment"
+        android:label="FoodDetailFragment"
+        tools:layout="@layout/fragment_food_detail">
+        <action
+            android:id="@+id/toOnCartFragmentFromDetail"
+            app:destination="@id/onCartFragment" />
+        <argument
+            android:name="foodItem"
+            app:argType="com.example.foodorderingapp.data.entity.FoodList" />
+    </fragment>
+    <fragment
+        android:id="@+id/onCartFragment"
+        android:name="com.example.foodorderingapp.UI.Fragments.OnCartFragment"
+        android:label="fragment_on_cart"
+        tools:layout="@layout/fragment_on_cart" />
+</navigation>
